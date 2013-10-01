@@ -3,24 +3,33 @@ module ApiPaginationHeaders
 
   def set_pagination_headers(name)
     scope = instance_variable_get("@#{name}")
-    request_params = request.query_parameters
+    pages = set_page_numbers(scope)
+    links = create_links(pages)
+
+    headers['Link'] = links.join(', ') unless links.empty?
+    headers['X-Total-Count'] = "#{scope.total_entries}"
+  end
+
+  private
+
+  def create_links(pages)
     url_without_params = request.url.split('?').first
     per_page = params[:per_page] ? params[:per_page].to_i : WillPaginate.per_page
-
-    page = {}
-    page[:first] = 1 if scope.total_pages > 1 && scope.current_page > 1
-    page[:prev] = scope.current_page - 1 if scope.current_page > 1
-    page[:next] = scope.current_page + 1 if scope.current_page < scope.total_pages
-    page[:last] = scope.total_pages if scope.total_pages > 1 && scope.current_page < scope.total_pages
-
-    pagination_links = []
-    page.each do |key, value|
-      new_request_hash = request_params.merge({ page: value, per_page: per_page })
-      pagination_links << "<#{url_without_params}?#{new_request_hash.to_param}>; rel=\"#{key}\""
+    links = []
+    pages.each do |key, value|
+      new_params = request.query_parameters.merge({ page: value, per_page: per_page })
+      links << "<#{url_without_params}?#{new_params.to_param}>; rel=\"#{key}\""
     end
+    links
+  end
 
-    headers['Link'] = pagination_links.join(', ') unless pagination_links.empty?
-    headers['X-Total-Count'] = "#{scope.total_entries}"
+  def set_page_numbers(scope)
+    pages = {}
+    pages[:first] = 1 if scope.total_pages > 1 && scope.current_page > 1
+    pages[:prev] = scope.current_page - 1 if scope.current_page > 1
+    pages[:next] = scope.current_page + 1 if scope.current_page < scope.total_pages
+    pages[:last] = scope.total_pages if scope.total_pages > 1 && scope.current_page < scope.total_pages
+    pages
   end
 end
 
