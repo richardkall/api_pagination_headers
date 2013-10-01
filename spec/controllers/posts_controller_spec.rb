@@ -21,7 +21,7 @@ describe PostsController, '#index' do
     context 'current page is first page' do
       it 'responds with Link header' do
         get :index, format: :json
-        expect(response.headers['Link']).to eq("<#{posts_url(page: 2, per_page: 1, format: :json)}>;rel=\"next\">,<#{posts_url(page: 2, per_page: 1, format: :json)}>;rel=\"last\">")
+        expect(response.headers['Link']).to eq("<#{posts_url(page: 2, per_page: 1, format: :json)}>; rel=\"next\", <#{posts_url(page: 2, per_page: 1, format: :json)}>; rel=\"last\"")
       end
 
       it 'responds with X-Total-Count header' do
@@ -33,7 +33,7 @@ describe PostsController, '#index' do
     context 'current page is last page' do
       it 'responds with Link header' do
         get :index, page: 2, format: :json
-        expect(response.headers['Link']).to eq("<#{posts_url(page: 1, per_page: 1, format: :json)}>;rel=\"first\">,<#{posts_url(page: 1, per_page: 1, format: :json)}>;rel=\"prev\">")
+        expect(response.headers['Link']).to eq("<#{posts_url(page: 1, per_page: 1, format: :json)}>; rel=\"first\", <#{posts_url(page: 1, per_page: 1, format: :json)}>; rel=\"prev\"")
       end
 
       it 'responds with X-Total-Count header' do
@@ -49,7 +49,7 @@ describe PostsController, '#index' do
     context 'current page is 1/3' do
       it 'responds with Link header' do
         get :index, format: :json
-        expect(response.headers['Link']).to eq("<#{posts_url(page: 2, per_page: 1, format: :json)}>;rel=\"next\">,<#{posts_url(page: 3, per_page: 1, format: :json)}>;rel=\"last\">")
+        expect(response.headers['Link']).to eq("<#{posts_url(page: 2, per_page: 1, format: :json)}>; rel=\"next\", <#{posts_url(page: 3, per_page: 1, format: :json)}>; rel=\"last\"")
       end
 
       it 'responds with X-Total-Count header' do
@@ -61,7 +61,7 @@ describe PostsController, '#index' do
     context 'current page is 2/3' do
       it 'responds with Link header' do
         get :index, page: 2, format: :json
-        expect(response.headers['Link']).to eq("<#{posts_url(page: 1, per_page: 1, format: :json)}>;rel=\"first\">,<#{posts_url(page: 1, per_page: 1, format: :json)}>;rel=\"prev\">,<#{posts_url(page: 3, per_page: 1, format: :json)}>;rel=\"next\">,<#{posts_url(page: 3, per_page: 1, format: :json)}>;rel=\"last\">")
+        expect(response.headers['Link']).to eq("<#{posts_url(page: 1, per_page: 1, format: :json)}>; rel=\"first\", <#{posts_url(page: 1, per_page: 1, format: :json)}>; rel=\"prev\", <#{posts_url(page: 3, per_page: 1, format: :json)}>; rel=\"next\", <#{posts_url(page: 3, per_page: 1, format: :json)}>; rel=\"last\"")
       end
 
       it 'responds with X-Total-Count header' do
@@ -73,7 +73,7 @@ describe PostsController, '#index' do
     context 'current page is 3/3' do
       it 'responds with Link header' do
         get :index, page: 3, format: :json
-        expect(response.headers['Link']).to eq("<#{posts_url(page: 1, per_page: 1, format: :json)}>;rel=\"first\">,<#{posts_url(page: 2, per_page: 1, format: :json)}>;rel=\"prev\">")
+        expect(response.headers['Link']).to eq("<#{posts_url(page: 1, per_page: 1, format: :json)}>; rel=\"first\", <#{posts_url(page: 2, per_page: 1, format: :json)}>; rel=\"prev\"")
       end
 
       it 'responds with X-Total-Count header' do
@@ -87,7 +87,7 @@ describe PostsController, '#index' do
     it 'changes per_page value in Link header' do
       FactoryGirl.create_list(:post, 3)
       get :index, per_page: 2, format: :json
-      expect(response.headers['Link']).to eq("<#{posts_url(page: 2, per_page: 2, format: :json)}>;rel=\"next\">,<#{posts_url(page: 2, per_page: 2, format: :json)}>;rel=\"last\">")
+      expect(response.headers['Link']).to eq("<#{posts_url(page: 2, per_page: 2, format: :json)}>; rel=\"next\", <#{posts_url(page: 2, per_page: 2, format: :json)}>; rel=\"last\"")
     end
   end
 
@@ -95,7 +95,7 @@ describe PostsController, '#index' do
     it 'adds params to Link header' do
       FactoryGirl.create_list(:post, 2)
       get :index, order: 'asc', format: :json
-      expect(response.headers['Link']).to eq("<#{posts_url(page: 2, per_page: 1, order: 'asc', format: :json)}>;rel=\"next\">,<#{posts_url(page: 2, per_page: 1, order: 'asc', format: :json)}>;rel=\"last\">")
+      expect(response.headers['Link']).to eq("<#{posts_url(page: 2, per_page: 1, order: 'asc', format: :json)}>; rel=\"next\", <#{posts_url(page: 2, per_page: 1, order: 'asc', format: :json)}>; rel=\"last\"")
     end
   end
 end

@@ -5,7 +5,7 @@ api_pagination_headers is a gem that adds pagination info to a `Link` response h
 Example:
 
 ```
-Link: <http://example.com/posts?page=2&per_page=10>; rel="next", <http://example.com/posts?page=2&per_page=10>; rel="last"
+Link: <http://example.com/posts?page=2&per_page=10>;rel="next",<http://example.com/posts?page=2&per_page=10>;rel="last"
 X-Total-Count: 11
 ```
 
