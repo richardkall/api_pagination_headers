@@ -1,0 +1,8 @@
+language:
+  - ruby
+install:
+  - 'bundle install'
+  - 'cd spec/dummy;rake db:test:prepare;cd ../../'
+rvm:
+  - 1.9.3
+  - 2.0.0
