@@ -1,5 +1,5 @@
 #api_pagination_headers
-[![Build Status](https://travis-ci.org/richardkall/api_pagination_headers.png)](http://travis-ci.org/richardkall/api_pagination_headers) [![Dependency Status](https://gemnasium.com/richardkall/api_pagination_headers.png)](https://gemnasium.com/richardkall/api_pagination_headers)
+[![Build Status](https://travis-ci.org/richardkall/api_pagination_headers.png)](http://travis-ci.org/richardkall/api_pagination_headers) [![Dependency Status](https://gemnasium.com/richardkall/api_pagination_headers.png)](https://gemnasium.com/richardkall/api_pagination_headers) [![Code Climate](https://codeclimate.com/github/richardkall/api_pagination_headers.png)](https://codeclimate.com/github/richardkall/api_pagination_headers)
 
 api_pagination_headers is a gem that adds pagination info to a `Link` response header. This is considered to be the [best practice](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#pagination) for REST APIs and is currently used by [GitHub](http://developer.github.com/v3/#pagination). It also adds the total number of records into a `X-Total-Count` header.
 
