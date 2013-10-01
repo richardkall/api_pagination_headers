@@ -3,7 +3,7 @@ PATH
   specs:
     api_pagination_headers (0.0.1)
       rails (~> 4.0.0)
-      will_paginate
+      will_paginate (~> 3.0.5)
 
 GEM
   remote: https://rubygems.org/
