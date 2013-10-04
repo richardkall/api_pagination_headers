@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/richardkall/api_pagination_headers'
   s.summary     = 'Link header pagination for APIs'
   s.description = 'Add pagination info to the response headers, GitHub style.'
+  s.license     = 'MIT'
 
   s.files       = `git ls-files`.split($/)
   s.test_files  = `git ls-files -- {spec}/*`.split("\n")
