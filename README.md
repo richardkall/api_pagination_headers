@@ -1,5 +1,4 @@
-#api_pagination_headers
-[![Build Status](https://travis-ci.org/richardkall/api_pagination_headers.png)](http://travis-ci.org/richardkall/api_pagination_headers) [![Dependency Status](https://gemnasium.com/richardkall/api_pagination_headers.png)](https://gemnasium.com/richardkall/api_pagination_headers) [![Code Climate](https://codeclimate.com/github/richardkall/api_pagination_headers.png)](https://codeclimate.com/github/richardkall/api_pagination_headers)
+#api_pagination_headers [![Build Status](https://travis-ci.org/richardkall/api_pagination_headers.svg)](http://travis-ci.org/richardkall/api_pagination_headers) [![Dependency Status](https://gemnasium.com/richardkall/api_pagination_headers.png)](https://gemnasium.com/richardkall/api_pagination_headers)
 
 api_pagination_headers is a gem that adds pagination info to a `Link` response header. This is considered to be the [best practice](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#pagination) for REST APIs and is currently used by [GitHub](http://developer.github.com/v3/#pagination). It also adds the total number of records into a `X-Total-Count` header.
 
@@ -18,9 +17,7 @@ Include in your Gemfile:
 gem 'api_pagination_headers'
 ```
 
-Depending on [will_paginate](https://github.com/mislav/will_paginate) at the moment.
-
-Support for [rails-api](https://github.com/rails-api/rails-api) is built in.
+Depending on [will_paginate](https://github.com/mislav/will_paginate) at the moment. Support for [rails-api](https://github.com/rails-api/rails-api) is built in.
 
 ##Usage
 
@@ -37,13 +34,5 @@ class PostsController < ApplicationController
 end
 ```
 
-##Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
-
 ##License
-Copyright © 2013 [Richard Käll](http://richardkall.se). Licensed under the MIT license.
+Copyright © 2014 [Richard Käll](http://richardkall.se). Licensed under the MIT license.
