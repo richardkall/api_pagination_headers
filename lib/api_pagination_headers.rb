@@ -4,7 +4,7 @@ module ApiPaginationHeaders
   def set_pagination_headers(name)
     scope = instance_variable_get("@#{name}")
     pages = set_page_numbers(scope)
-    links = create_links(pages)
+    links = create_links(pages, scope)
 
     headers['Link'] = links.join(', ') unless links.empty?
     headers['X-Total-Count'] = "#{scope.total_entries}"
@@ -12,9 +12,9 @@ module ApiPaginationHeaders
 
   private
 
-  def create_links(pages)
+  def create_links(pages, scope)
     url_without_params = request.url.split('?').first
-    per_page = params[:per_page] ? params[:per_page].to_i : WillPaginate.per_page
+    per_page = params[:per_page] ? params[:per_page].to_i : scope.per_page
     links = []
     pages.each do |key, value|
       new_params = request.query_parameters.merge({ page: value, per_page: per_page })
