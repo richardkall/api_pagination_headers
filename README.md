@@ -13,7 +13,7 @@ X-Total-Count: 11
 
 Include in your Gemfile:
 
-```
+```ruby
 gem 'api_pagination_headers'
 ```
 
@@ -23,7 +23,7 @@ Depending on [will_paginate](https://github.com/mislav/will_paginate) at the mom
 
 In the controller:
 
-```
+```ruby
 class PostsController < ApplicationController
   after_action only: [:index] { set_pagination_headers(:posts) }
 
