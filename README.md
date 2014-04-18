@@ -13,8 +13,16 @@ X-Total-Count: 11
 
 Include in your Gemfile:
 
+* Rails 4
+
 ```ruby
 gem 'api_pagination_headers'
+```
+
+* Rails 3.2
+
+```ruby
+gem 'api_pagination_headers', branch: 'rails-3-2'
 ```
 
 Depending on [will_paginate](https://github.com/mislav/will_paginate) at the moment. Support for [rails-api](https://github.com/rails-api/rails-api) is built in.
@@ -23,12 +31,27 @@ Depending on [will_paginate](https://github.com/mislav/will_paginate) at the mom
 
 In the controller:
 
+* Rails 4
+
 ```ruby
 class PostsController < ApplicationController
   after_action only: [:index] { set_pagination_headers(:posts) }
 
   def index
     @posts = Post.all.paginate(per_page: params[:per_page], page: params[:page])
+    respond_with @posts
+  end
+end
+```
+
+* Rails 3.2
+
+```ruby
+class PostsController < ApplicationController
+  after_filter only: [:index] { set_pagination_headers(:posts) }
+
+  def index
+    @posts = Post.paginate(per_page: params[:per_page], page: params[:page])
     respond_with @posts
   end
 end
