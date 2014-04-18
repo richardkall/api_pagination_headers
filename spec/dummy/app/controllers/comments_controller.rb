@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
-  after_action only: [:index] { set_pagination_headers(:comments) }
+  after_filter only: [:index] { set_pagination_headers(:comments) }
 
   def index
-    @comments = Comment.all.paginate(per_page: params[:per_page], page: params[:page])
+    @comments = Comment.where('id > 0').paginate(per_page: params[:per_page], page: params[:page])
     respond_with @comments
   end
 end

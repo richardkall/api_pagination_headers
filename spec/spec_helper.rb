@@ -4,8 +4,6 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'factory_girl_rails'
 
-ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
-
 RSpec.configure do |config|
   config.order = 'random'
   config.include Rails.application.routes.url_helpers
