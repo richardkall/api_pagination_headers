@@ -2,7 +2,7 @@ language:
   - ruby
 install:
   - 'bundle install'
-  - 'cd spec/dummy;rake db:test:prepare;cd ../../'
+  - 'cd spec/dummy;rake db:drop;rake db:create;rake db:schema:load;rake db:test:prepare;cd ../../'
 rvm:
   - 1.9.3
   - 2.0.0
