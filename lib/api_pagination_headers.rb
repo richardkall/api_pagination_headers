@@ -7,7 +7,7 @@ module ApiPaginationHeaders
     links = create_links(pages, scope)
 
     headers['Link'] = links.join(', ') unless links.empty?
-    headers['X-Total-Count'] = "#{scope.total_entries}"
+    headers['X-Total-Count'] = "#{scope.total_count}"
   end
 
   private
