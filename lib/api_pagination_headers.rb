@@ -7,14 +7,14 @@ module ApiPaginationHeaders
     links = create_links(pages, scope)
 
     headers['Link'] = links.join(', ') unless links.empty?
-    headers['X-Total-Count'] = "#{scope.total_entries}"
+    headers['X-Total-Count'] = "#{scope.total_count}"
   end
 
   private
 
   def create_links(pages, scope)
     url_without_params = request.url.split('?').first
-    per_page = params[:per_page] ? params[:per_page].to_i : scope.per_page
+    per_page = params[:per_page] ? params[:per_page].to_i : scope.default_per_page
     links = []
     pages.each do |key, value|
       new_params = request.query_parameters.merge({ page: value, per_page: per_page })

@@ -5,7 +5,7 @@ require 'api_pagination_headers/version'
 Gem::Specification.new do |s|
   s.name        = 'api_pagination_headers'
   s.version     = ApiPaginationHeaders::VERSION
-  s.authors     = ['Richard Käll']
+  s.authors     = ['Richard Kall']
   s.email       = ['richard.kall@me.com']
   s.homepage    = 'https://github.com/richardkall/api_pagination_headers'
   s.summary     = 'Link header pagination for APIs'
