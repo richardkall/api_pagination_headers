@@ -1,9 +1,8 @@
 PATH
   remote: .
   specs:
-    api_pagination_headers (1.1.2)
+    api_pagination_headers (2.0.0)
       rails (~> 4.0)
-      will_paginate (~> 3.0.5)
 
 GEM
   remote: https://rubygems.org/
@@ -34,6 +33,12 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     builder (3.1.4)
+    byebug (3.5.1)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
+    columnize (0.8.9)
+    debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     factory_girl (4.4.0)
@@ -43,13 +48,16 @@ GEM
       railties (>= 3.0.0)
     hike (1.2.3)
     i18n (0.6.9)
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
-    polyglot (0.3.4)
+    polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -79,7 +87,8 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    sprockets (2.12.0)
+    slop (3.6.0)
+    sprockets (2.12.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -103,6 +112,9 @@ PLATFORMS
 
 DEPENDENCIES
   api_pagination_headers!
+  byebug
   factory_girl_rails
+  kaminari
   rspec-rails
   sqlite3
+  will_paginate

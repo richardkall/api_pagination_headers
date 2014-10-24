@@ -9,9 +9,9 @@ describe PostsController, '#index' do
       expect(response.headers).not_to include('Link')
     end
 
-    it 'responds with X-Total-Count header' do
+    it 'responds with Total-Count header' do
       get :index, format: :json
-      expect(response.headers['X-Total-Count']).to eq('1')
+      expect(response.headers['Total-Count']).to eq('1')
     end
   end
 
@@ -24,9 +24,9 @@ describe PostsController, '#index' do
         expect(response.headers['Link']).to eq("<#{posts_url(page: 2, per_page: 1, format: :json)}>; rel=\"next\", <#{posts_url(page: 2, per_page: 1, format: :json)}>; rel=\"last\"")
       end
 
-      it 'responds with X-Total-Count header' do
+      it 'responds with Total-Count header' do
         get :index, format: :json
-        expect(response.headers['X-Total-Count']).to eq('2')
+        expect(response.headers['Total-Count']).to eq('2')
       end
     end
 
@@ -36,9 +36,9 @@ describe PostsController, '#index' do
         expect(response.headers['Link']).to eq("<#{posts_url(page: 1, per_page: 1, format: :json)}>; rel=\"first\", <#{posts_url(page: 1, per_page: 1, format: :json)}>; rel=\"prev\"")
       end
 
-      it 'responds with X-Total-Count header' do
+      it 'responds with Total-Count header' do
         get :index, format: :json
-        expect(response.headers['X-Total-Count']).to eq('2')
+        expect(response.headers['Total-Count']).to eq('2')
       end
     end
   end
@@ -52,9 +52,9 @@ describe PostsController, '#index' do
         expect(response.headers['Link']).to eq("<#{posts_url(page: 2, per_page: 1, format: :json)}>; rel=\"next\", <#{posts_url(page: 3, per_page: 1, format: :json)}>; rel=\"last\"")
       end
 
-      it 'responds with X-Total-Count header' do
+      it 'responds with Total-Count header' do
         get :index, format: :json
-        expect(response.headers['X-Total-Count']).to eq('3')
+        expect(response.headers['Total-Count']).to eq('3')
       end
     end
 
@@ -64,9 +64,9 @@ describe PostsController, '#index' do
         expect(response.headers['Link']).to eq("<#{posts_url(page: 1, per_page: 1, format: :json)}>; rel=\"first\", <#{posts_url(page: 1, per_page: 1, format: :json)}>; rel=\"prev\", <#{posts_url(page: 3, per_page: 1, format: :json)}>; rel=\"next\", <#{posts_url(page: 3, per_page: 1, format: :json)}>; rel=\"last\"")
       end
 
-      it 'responds with X-Total-Count header' do
+      it 'responds with Total-Count header' do
         get :index, format: :json
-        expect(response.headers['X-Total-Count']).to eq('3')
+        expect(response.headers['Total-Count']).to eq('3')
       end
     end
 
@@ -76,9 +76,9 @@ describe PostsController, '#index' do
         expect(response.headers['Link']).to eq("<#{posts_url(page: 1, per_page: 1, format: :json)}>; rel=\"first\", <#{posts_url(page: 2, per_page: 1, format: :json)}>; rel=\"prev\"")
       end
 
-      it 'responds with X-Total-Count header' do
+      it 'responds with Total-Count header' do
         get :index, format: :json
-        expect(response.headers['X-Total-Count']).to eq('3')
+        expect(response.headers['Total-Count']).to eq('3')
       end
     end
   end
