@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PostsController, '#index' do
+describe PostsController, '#index', type: :controller do
   context 'when one page' do
     before { FactoryGirl.create(:post) }
 

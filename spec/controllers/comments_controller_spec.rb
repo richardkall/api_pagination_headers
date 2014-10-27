@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CommentsController, '#index' do
+describe CommentsController, '#index', type: :controller do
   context 'when model has per_page attribute' do
     it 'overrides WillPaginate default' do
       FactoryGirl.create_list(:comment, 4)
