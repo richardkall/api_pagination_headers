@@ -16,9 +16,10 @@ Gem::Specification.new do |s|
   s.test_files  = `git ls-files -- {spec}/*`.split("\n")
 
   s.add_dependency 'rails', '~> 4.0'
-  s.add_dependency 'will_paginate', '~> 3.0.5'
 
   s.add_development_dependency 'factory_girl_rails'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'kaminari'
+  s.add_development_dependency 'will_paginate'
 end

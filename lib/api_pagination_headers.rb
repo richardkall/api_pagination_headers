@@ -1,3 +1,8 @@
+require 'active_support/configurable'
+
+require 'api_pagination_headers/version'
+require 'api_pagination_headers/config'
+
 module ApiPaginationHeaders
   protected
 
@@ -7,14 +12,20 @@ module ApiPaginationHeaders
     links = create_links(pages, scope)
 
     headers['Link'] = links.join(', ') unless links.empty?
-    headers['X-Total-Count'] = "#{scope.total_entries}"
+    headers[ApiPaginationHeaders.config.total_count_header] = defined?(Kaminari) ? "#{scope.total_count}" : "#{scope.total_entries}"
   end
 
   private
 
   def create_links(pages, scope)
     url_without_params = request.url.split('?').first
-    per_page = params[:per_page] ? params[:per_page].to_i : scope.per_page
+
+    if params[:per_page]
+      per_page = params[:per_page].to_i
+    else
+      per_page = defined?(Kaminari) ? scope.default_per_page : scope.per_page
+    end
+
     links = []
     pages.each do |key, value|
       new_params = request.query_parameters.merge({ page: value, per_page: per_page })
