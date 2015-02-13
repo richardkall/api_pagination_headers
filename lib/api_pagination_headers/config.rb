@@ -20,5 +20,6 @@ module ApiPaginationHeaders
     TOTAL_COUNT_HEADER = 'Total-Count'
 
     config_accessor(:total_count_header)  { TOTAL_COUNT_HEADER }
+    config_accessor(:force_https)  { false }
   end
 end
