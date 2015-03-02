@@ -59,11 +59,15 @@ end
 
 ##Configuration
 
-You can change the `Total-Count` header title by configuring the gem.
+Add the following code if you want to configure the gem:
 
 ```ruby
 ApiPaginationHeaders.configure do |config|
+  # Change total count header title (default: 'Total-Count')
   config.total_count_header = 'X-Total-Count'
+  
+  # Force HTTPS (default: false)
+  config.force_https = true
 end
 ```
 
