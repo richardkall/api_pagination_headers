@@ -98,4 +98,16 @@ describe PostsController, '#index', type: :controller do
       expect(response.headers['Link']).to eq("<#{posts_url(page: 2, per_page: 1, order: 'asc', format: :json)}>; rel=\"next\", <#{posts_url(page: 2, per_page: 1, order: 'asc', format: :json)}>; rel=\"last\"")
     end
   end
+
+  context 'when config has force_https set to true' do
+    it 'replaces http:// with https:// in Link header' do
+      ApiPaginationHeaders.config.force_https = true
+      FactoryGirl.create_list(:post, 2)
+      get :index, order: 'asc', format: :json
+      expect(response.headers['Link']).to match 'https://'
+      expect(response.headers['Link']).not_to match 'http://'
+      ApiPaginationHeaders.config.force_https = false
+    end
+  end
+
 end

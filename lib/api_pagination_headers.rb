@@ -19,6 +19,9 @@ module ApiPaginationHeaders
 
   def create_links(pages, scope)
     url_without_params = request.url.split('?').first
+    if ApiPaginationHeaders.config.force_https
+      url_without_params.sub! 'http://', 'https://'
+    end
 
     if params[:per_page]
       per_page = params[:per_page].to_i
