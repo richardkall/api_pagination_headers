@@ -3,6 +3,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.paginate(per_page: params[:per_page], page: params[:page])
-    respond_with @posts
+    render json: @posts
   end
 end

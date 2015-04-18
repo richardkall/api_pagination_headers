@@ -3,6 +3,6 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all.paginate(per_page: params[:per_page], page: params[:page])
-    respond_with @comments
+    render json: @comments
   end
 end
