@@ -71,5 +71,6 @@ ApiPaginationHeaders.configure do |config|
 end
 ```
 
-##License
-Copyright © 2014 [Richard Käll](http://richardkall.se). Licensed under the MIT license.
+## License
+
+MIT © [Richard Käll](http://richardkall.se)
