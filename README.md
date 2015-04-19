@@ -1,4 +1,4 @@
-#api_pagination_headers [![Build Status](https://travis-ci.org/richardkall/api_pagination_headers.svg)](http://travis-ci.org/richardkall/api_pagination_headers) [![Dependency Status](https://gemnasium.com/richardkall/api_pagination_headers.svg)](https://gemnasium.com/richardkall/api_pagination_headers)
+# api_pagination_headers [![Build Status](https://travis-ci.org/richardkall/api_pagination_headers.svg)](http://travis-ci.org/richardkall/api_pagination_headers) [![Dependency Status](https://gemnasium.com/richardkall/api_pagination_headers.svg)](https://gemnasium.com/richardkall/api_pagination_headers)
 
 > Adds pagination info to a `Link` response header.
 
@@ -52,4 +52,4 @@ end
 
 ## License
 
-MIT © [Richard Käll](http://richardkall.se)
+MIT &copy; [Richard Käll](http://richardkall.se)
