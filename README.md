@@ -1,4 +1,4 @@
-# api_pagination_headers [![Build Status](https://travis-ci.org/richardkall/api_pagination_headers.svg)](http://travis-ci.org/richardkall/api_pagination_headers) [![Dependency Status](https://gemnasium.com/richardkall/api_pagination_headers.svg)](https://gemnasium.com/richardkall/api_pagination_headers)
+# api_pagination_headers [![Build Status](https://img.shields.io/codeship/e218bba0-c8c5-0132-1d54-2e67424578fa.svg)](https://codeship.com/projects/75115) [![Dependency Status](https://gemnasium.com/richardkall/api_pagination_headers.svg)](https://gemnasium.com/richardkall/api_pagination_headers)
 
 > Adds pagination info to a `Link` response header.
 
