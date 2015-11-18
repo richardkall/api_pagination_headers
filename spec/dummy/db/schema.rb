@@ -13,11 +13,11 @@
 
 ActiveRecord::Schema.define(version: 20140406141645) do
 
-  create_table "comments", force: true do |t|
+  create_table "comments", force: :cascade do |t|
     t.string "content"
   end
 
-  create_table "posts", force: true do |t|
+  create_table "posts", force: :cascade do |t|
     t.string "content"
   end
 
