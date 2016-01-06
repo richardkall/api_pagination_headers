@@ -1,0 +1,8 @@
+language: ruby
+rvm:
+  - 2.2
+  - 2.1
+  - 2.0
+before_install: gem install bundler
+before_script: cd spec/dummy;rake db:drop;rake db:create;rake db:schema:load;rake db:test:prepare;cd ../../
+script: bundle exec rake
